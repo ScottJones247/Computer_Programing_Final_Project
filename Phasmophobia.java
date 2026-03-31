@@ -1,9 +1,23 @@
 import java.util.Random;
 import java.util.Scanner;
 class Phasmophobia{
+    public static int playerX = 29;
+    public static int playerY = 9;
+    public static boolean dots = false;
+    public static boolean emf = false;
+    public static boolean freezing = false;
+    public static boolean orb = false;
+    public static boolean writing = false;
+    public static boolean box = false;
+    public static boolean uv = false;
     public static void main(String[] args){
         ghosts();
-        map();
+        boolean leaveGame = false;
+        printMap();
+        do{
+            playerInput();
+            printMap();
+        }while(leaveGame == false);
     }
     public static void ghosts(){
         Random r = new Random();
@@ -23,47 +37,62 @@ class Phasmophobia{
         ghost[4] = ghostTypes[4][i];
         System.out.println(ghost[0] + " " + ghost[1] + " " + ghost[2] + " " + ghost[3] + " " + ghost[4]);
     }
-    public static int[][] interactionMap(){
-    int mainMap[][] = {
+    public static int[][] mainMap(){
+        //door (open / closed)
+        //faucet (on / off)
+        //light switch (on / off)
+        //throwable
+        //window
+        int tangleWood[][] = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,0,1,0,0,1,1,1,0,0,1,1,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1},
-            {1,1,0,0,1,0,0,1,1,0,0,1,1,1,0,0,1,0,1,1,1,0,1,1,0,0,0,0,0,0,0,1,1},
-            {1,1,0,0,1,0,0,1,1,0,0,0,1,1,0,0,1,0,1,1,1,0,1,1,0,0,0,0,0,0,0,1,1},
-            {1,1,1,0,1,0,1,1,1,0,1,0,1,1,0,0,1,0,1,1,1,0,1,1,0,0,1,0,0,0,0,1,1},
-            {1,1,1,0,0,0,0,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0,1,1,0,0,1,1,1,0,0,1,1},
-            {1,0,0,0,0,0,1,1,1,0,0,0,1,1,0,0,1,0,0,0,0,1,1,1,0,0,1,0,0,0,0,0,1},
-            {1,0,1,1,0,0,1,1,1,0,0,0,1,1,1,0,1,0,0,0,0,1,1,1,0,0,1,1,1,0,1,1,1},
-            {1,1,1,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,1,0,0,0,0,0,1},
-            {1,1,1,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,0,1,1,1,1,0,1,1,1,0,1,1,1},
-            {1,0,0,2,1,0,1,1,1,0,0,1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,2,0,0,0,0,1},
-            {1,1,0,1,1,0,0,0,0,0,0,1,1,0,0,0,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,0,0,0,1,1,1,1,0,0,1,1,1,0,0,0,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,0,0,0,0,0,1,0,0,2,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,1,0,0,1,0,0,2,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,1,0,0,1,0,0,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,2,0,0,1,0,0,1,1,1,0,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,2,0,0,1,0,1,1,1,1,0,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,1,0,0,0,0,1,1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,1,0,0,0,0,1,1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,0,0,1,0,0,1,0,0,1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,0,0,0,0,0,1,0,0,1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,1,0,1,1,1,0,1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,0,0,0,1,2,2,2,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,0,0,0,0,0,1,2,2,2,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,0,0,0,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,0,2,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,0,2,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,1,1,1,1,2,3,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+            {1,3,3,0,1,0,0,1,3,3,0,0,3,1,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,3,1},
+            {1,3,0,0,1,0,0,1,3,0,0,3,3,1,0,0,1,0,3,3,3,0,1,1,0,0,0,0,0,0,0,3,1},
+            {1,3,0,0,1,0,0,1,3,0,0,0,3,1,0,0,1,0,3,3,3,0,1,1,0,0,0,0,0,0,0,3,1},
+            {1,1,1,0,1,0,1,1,3,0,3,0,3,1,0,0,1,0,3,3,3,0,1,1,0,0,1,0,0,0,0,3,1},
+            {1,3,3,0,0,0,0,1,3,0,0,0,3,1,0,0,1,0,0,0,0,0,1,1,0,0,1,3,3,0,0,3,1},
+            {1,0,0,0,0,0,3,1,3,0,0,0,3,1,0,0,1,0,0,0,0,3,1,1,0,0,1,0,0,0,0,0,1},
+            {1,0,3,3,0,0,3,1,3,0,0,0,3,1,1,0,1,0,0,0,0,3,1,1,0,0,1,3,3,0,3,3,1},
+            {1,3,3,3,0,0,3,1,3,0,0,0,0,0,0,0,0,0,0,0,0,3,1,1,0,0,1,0,0,0,0,0,1},
+            {1,1,1,1,1,0,0,1,3,0,0,0,0,0,0,0,0,0,3,3,0,3,1,1,1,0,1,3,3,0,3,3,1},
+            {1,0,0,2,1,0,1,1,3,0,0,1,1,1,0,1,1,0,3,3,0,3,1,1,1,1,1,2,0,0,0,0,1},
+            {1,3,0,3,1,0,0,0,0,0,0,1,3,0,0,0,1,0,3,3,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,0,0,3,1,0,0,0,0,0,0,1,3,0,0,0,1,0,3,3,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,0,0,0,1,1,1,1,0,0,1,1,3,0,0,0,1,0,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,0,0,0,0,0,1,0,0,2,1,3,0,0,0,1,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,3,3,1,0,0,1,0,0,2,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,0,0,1,0,0,1,1,3,0,0,0,0,0,0,0,3,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,2,0,0,1,0,0,1,1,3,0,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,2,0,0,1,0,3,1,1,3,0,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,0,0,0,0,3,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,3,3,1,0,0,0,0,3,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,0,0,1,0,0,1,0,0,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,0,0,0,0,0,1,0,0,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,0,1,1,1,0,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,3,3,0,0,0,1,2,2,2,1,3,0,0,0,0,0,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,0,0,0,0,0,1,2,2,2,1,3,0,0,0,0,0,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,0,0,0,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,3,3,0,2,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,3,3,0,2,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
         };
-        return mainMap;
+        tangleWood[playerX][playerY] = 4;
+        if(tangleWood[7][15] == 4){
+            playerX = 8;
+            playerY = 25;
+        } 
+        if(tangleWood[9][25] == 4){
+            playerX = 8;
+            playerY = 15;
+        }
+        System.out.println(playerX + " " + playerY);
+        return tangleWood;
     }
-    public static void map(){
-        // 1 = wall
-        // 2 = player can enter ghost cant
-        // 3 = player
-        // 4 = ghost
-        int[][] currentLocation = interactionMap();
+    public static void printMap(){
+        //receives map to print
+        int[][] currentLocation = mainMap();
+        //removes old map
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        //prints out new map
         for(int i = 0; i < currentLocation.length; i++){
             for(int j = 0; j < currentLocation[0].length; j++){
                 switch (currentLocation[i][j]){
@@ -75,53 +104,101 @@ class Phasmophobia{
                         System.out.print((char)9632);
                     break;
                     case 2:
-                        System.out.print("  ");
+                        System.out.print("HH");
                     break;
                     case 3:
-                        System.out.print("()");
+                        System.out.print("XX");
                     break;
                     case 4:
-                        System.out.print("{}");
+                        System.out.print("()");
+                    break;
+                    case 5:
+                        System.out.print("<>");
                     break;
                 }
             }
             System.out.println();
         }
-        move();
     }
-    public static int[][] move(){
+    public static void playerInput(){
+        int[][] map = mainMap();
         System.out.println("Enter a direction then press ENTER\nw)up\na)left\ns)down\nd)right");
-        int playerX = 0;
-        int playerY = 0;
-        int[][] playerLocation = interactionMap();
-        for(int i = 0; i < playerLocation.length; i++){
-            for(int j = 0; j < playerLocation[0].length; j++){
-                if(playerLocation[i][j] == 3){
-                    playerX = i;
-                    playerY = j;
-                    break;
-                }
-            }
-        }
+        //receives input from player to move player
         Scanner input = new Scanner(System.in);
         String direction = input.nextLine();
         switch (direction){
             case "w":
-                playerY = playerY - 1;
+                if(map[playerX - 1][playerY] == 0 || map[playerX - 1][playerY] == 2)
+                playerX--;
             break;
             case "a":
-                playerX = playerX - 1;
+                if(map[playerX][playerY - 1] == 0 || map[playerX][playerY - 1] == 2)
+                playerY--;
             break;
             case "s":
-                playerY = playerY + 1;
+                if(map[playerX + 1][playerY] == 0 || map[playerX + 1][playerY] == 2)
+                playerX++;
             break;
             case "d":
-                playerX = playerX + 1;
+                if(map[playerX][playerY + 1] == 0 || map[playerX][playerY + 1] == 2)
+                playerY++;
+            break;
+            case "j":
+                journal();
+            break;
+            case "e":
+
+            break;
+            case "r":
+
             break;
         }
-        playerLocation[1][0] = playerX;
-        playerLocation[2][0] = playerY;
-        return playerLocation;
     }
-    
+    public static void journal(){
+        /*
+        dots
+        ghost orb
+        ghost writing
+        spirit box
+        freezing temps
+        emf 5
+        ultravoilet */
+        Scanner input = new Scanner(System.in);
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("Enter evidence" + "\n1)D.O.T.S. " + dots + "\n2)Ghost Orb "+ orb + "\n3)Ghost Writing " + writing + "\n4)Spirit Box " + box + "\n5)Ultraviolet " + uv + "\n6)Freezing Tempratures " + freezing + "\n7)EMF Level 5 " + emf);
+        int evidence = input.nextInt();
+        switch (evidence){
+            case 1:
+                if(dots == false) dots = true;
+                else dots = false;
+            break;
+            case 2:
+                if(orb == false) orb = true;
+                else orb = false;
+            break;
+            case 3:
+                if(writing == false) writing = true;
+                else writing = false;
+            break;
+            case 4:
+                if(box == false) box = true;
+                else box = false;
+            break;
+            case 5:
+                if(uv == false) uv = true;
+                else uv = false;
+            break;
+            case 6:
+                if(freezing == false) freezing = true;
+                else freezing = false;
+            break;
+            case 7:
+                if(emf == false) emf = true;
+                else emf = false;
+            break;
+        }
+        if(dots == true || orb == true || uv == true){
+            
+        }
+    }
 }
