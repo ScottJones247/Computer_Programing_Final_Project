@@ -155,50 +155,81 @@ class Phasmophobia{
         }
     }
     public static void journal(){
-        /*
-        dots
-        ghost orb
-        ghost writing
-        spirit box
-        freezing temps
-        emf 5
-        ultravoilet */
         Scanner input = new Scanner(System.in);
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("Enter evidence" + "\n1)D.O.T.S. " + dots + "\n2)Ghost Orb "+ orb + "\n3)Ghost Writing " + writing + "\n4)Spirit Box " + box + "\n5)Ultraviolet " + uv + "\n6)Freezing Tempratures " + freezing + "\n7)EMF Level 5 " + emf);
+        if(!(freezing == true || writing == true || box == true || emf == true)) System.out.println("Banshee"); 
+        if(!(box == true || emf == true || dots == true || orb == true)) System.out.println("Demon");
+        if(!(emf == true || orb == true || freezing == true || uv == true)) System.out.println("Deogen");
+        if(!(freezing == true || writing == true || uv == true || dots == true)) System.out.println("Dayan");
+        if(!(freezing == true || writing == true || dots == true || box == true)) System.out.println("Gallu");
+        if(!(freezing == true || writing == true || box == true || orb == true)) System.out.println("Goryo");
+        if(!(writing == true || box == true || emf == true || dots == true)) System.out.println("Hantu");
+        if(!(writing == true || box == true || orb == true || dots == true)) System.out.println("Jinn");
+        if(!(dots == true || freezing == true || emf == true || uv == true)) System.out.println("Mare");
+        if(!(dots == true || emf == true || uv == true || orb == true)) System.out.println("Moroi");
+        if(!(dots == true || orb == true || freezing == true || box == true)) System.out.println("Myling");
+        if(!(dots == true || freezing == true || box == true || writing == true)) System.out.println("Obake");
+        if(!(freezing == true || box == true || emf == true || orb == true)) System.out.println("Obambo");
+        if(!(box == true || orb == true || writing == true || uv == true)) System.out.println("Oni");
+        if(!(writing == true || uv == true || dots == true || emf == true)) System.out.println("Onryo");
+        if(!(writing == true || emf == true || orb == true || freezing == true)) System.out.println("Phantom");
+        if(!(emf == true || orb == true || freezing == true || dots == true)) System.out.println("Poltergeist");
+        if(!(writing == true || freezing == true || box == true || uv == true)) System.out.println("Raiju");
+        if(!(emf == true || box == true || uv == true || dots == true)) System.out.println("Revenant");
+        if(!(box == true || uv == true || dots == true || orb == true)) System.out.println("Shade");
+        if(!(uv == true || dots == true || orb == true || freezing == true)) System.out.println("Spirit");
+        if(!(uv == true || freezing == true || box == true || emf == true)) System.out.println("Thaye");
+        if(!(emf == true || writing == true || orb == true || dots == true)) System.out.println("The Mimic");
+        if(!(writing == true || orb == true || dots == true || uv == true)) System.out.println("The Twins");
+        if(!(writing == true || orb == true || uv == true || freezing == true)) System.out.println("Wraith");
+        if(!(writing == true || uv == true || emf == true || box == true)) System.out.println("Yurei");
+        if(!(writing == true || uv == true || emf == true || freezing == true)) System.out.println("Yokai");
+        if(dots == true) System.out.println("[X]1) D.O.T.S."); 
+        else System.out.println("[ ]1) D.O.T.S.");
+        if(emf == true) System.out.println("[X]2) EMF Level 5");
+        else System.out.println("[ ]2) EMF Level 5");
+        if(freezing == true)System.out.println("[X]3) Freezing Tempratures");
+        else System.out.println("[ ]3) Freezing Tempratures");
+        if(orb == true) System.out.println("[X]4) Ghost Orb");
+        else System.out.println("[ ]4) Ghost Orb");
+        if(writing == true) System.out.println("[X]5) Ghost Writing");
+        else System.out.println("[ ]5) Ghost Writing");
+        if(box == true) System.out.println("[X]6) Spirit Box");
+        else System.out.println("[ ]6) Spirit Box");
+        if(uv == true) System.out.println("[X]7) Ultraviolet");
+        else System.out.println("[ ]7) Ghost Orb");
+        System.out.println("8) No evidence to enter");
+        System.out.println("Enter Evidence");
         int evidence = input.nextInt();
         switch (evidence){
             case 1:
                 if(dots == false) dots = true;
                 else dots = false;
             break;
-            case 2:
+            case 4:
                 if(orb == false) orb = true;
                 else orb = false;
             break;
-            case 3:
+            case 5:
                 if(writing == false) writing = true;
                 else writing = false;
             break;
-            case 4:
+            case 6:
                 if(box == false) box = true;
                 else box = false;
             break;
-            case 5:
+            case 7:
                 if(uv == false) uv = true;
                 else uv = false;
             break;
-            case 6:
+            case 3:
                 if(freezing == false) freezing = true;
                 else freezing = false;
             break;
-            case 7:
+            case 2:
                 if(emf == false) emf = true;
                 else emf = false;
             break;
-        }
-        if(dots == true || orb == true || uv == true){
-            
         }
     }
 }
