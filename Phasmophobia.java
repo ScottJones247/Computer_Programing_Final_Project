@@ -10,6 +10,7 @@ class Phasmophobia{
     public static boolean writing = false;
     public static boolean box = false;
     public static boolean uv = false;
+    public static int ghostType = 0;
     public static void main(String[] args){
         ghosts();
         boolean leaveGame = false;
@@ -18,6 +19,9 @@ class Phasmophobia{
             playerInput();
             printMap();
         }while(leaveGame == false);
+    }
+    public static void clear(){
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
     public static void ghosts(){
         Random r = new Random();
@@ -84,35 +88,41 @@ class Phasmophobia{
             playerX = 8;
             playerY = 15;
         }
-        System.out.println(playerX + " " + playerY);
+        //System.out.println(playerX + " " + playerY);
         return tangleWood;
     }
     public static void printMap(){
         //receives map to print
         int[][] currentLocation = mainMap();
         //removes old map
-        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        clear();
         //prints out new map
         for(int i = 0; i < currentLocation.length; i++){
             for(int j = 0; j < currentLocation[0].length; j++){
                 switch (currentLocation[i][j]){
                     case 0:
+                        //walkable area
                         System.out.print("  ");
                     break;
                     case 1:
+                        //wall
                         System.out.print((char)9632);
                         System.out.print((char)9632);
                     break;
                     case 2:
-                        System.out.print("HH");
+                        //hiding spot
+                        System.out.print("[]");
                     break;
                     case 3:
-                        System.out.print("XX");
+                        //furniture
+                        System.out.print("##");
                     break;
                     case 4:
+                        //player
                         System.out.print("()");
                     break;
                     case 5:
+                        //ghost
                         System.out.print("<>");
                     break;
                 }
@@ -122,8 +132,9 @@ class Phasmophobia{
     }
     public static void playerInput(){
         int[][] map = mainMap();
-        System.out.println("Enter a direction then press ENTER\nw)up\na)left\ns)down\nd)right");
-        //receives input from player to move player
+        System.out.println("Press a letter then click enter");
+        System.out.println("c for controls");
+        //receives input from player
         Scanner input = new Scanner(System.in);
         String direction = input.nextLine();
         switch (direction){
@@ -152,84 +163,156 @@ class Phasmophobia{
             case "r":
 
             break;
+            case "f":
+
+            break;
+            case "c":
+                System.out.println("w) move up");
+                System.out.println("a) move left");
+                System.out.println("s) move right");
+                System.out.println("d) move down");
+                System.out.println("j) open journal");
+                System.out.println("e) grab item");
+                System.out.println("r) drop item");
+                System.out.println("f) interact");
+                System.out.println("Press Enter to continue");
+                input.nextLine();
+                printMap();
+            break;
         }
     }
     public static void journal(){
         Scanner input = new Scanner(System.in);
-        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        if(!(freezing == true || writing == true || box == true || emf == true)) System.out.println("Banshee"); 
-        if(!(box == true || emf == true || dots == true || orb == true)) System.out.println("Demon");
-        if(!(emf == true || orb == true || freezing == true || uv == true)) System.out.println("Deogen");
-        if(!(freezing == true || writing == true || uv == true || dots == true)) System.out.println("Dayan");
-        if(!(freezing == true || writing == true || dots == true || box == true)) System.out.println("Gallu");
-        if(!(freezing == true || writing == true || box == true || orb == true)) System.out.println("Goryo");
-        if(!(writing == true || box == true || emf == true || dots == true)) System.out.println("Hantu");
-        if(!(writing == true || box == true || orb == true || dots == true)) System.out.println("Jinn");
-        if(!(dots == true || freezing == true || emf == true || uv == true)) System.out.println("Mare");
-        if(!(dots == true || emf == true || uv == true || orb == true)) System.out.println("Moroi");
-        if(!(dots == true || orb == true || freezing == true || box == true)) System.out.println("Myling");
-        if(!(dots == true || freezing == true || box == true || writing == true)) System.out.println("Obake");
-        if(!(freezing == true || box == true || emf == true || orb == true)) System.out.println("Obambo");
-        if(!(box == true || orb == true || writing == true || uv == true)) System.out.println("Oni");
-        if(!(writing == true || uv == true || dots == true || emf == true)) System.out.println("Onryo");
-        if(!(writing == true || emf == true || orb == true || freezing == true)) System.out.println("Phantom");
-        if(!(emf == true || orb == true || freezing == true || dots == true)) System.out.println("Poltergeist");
-        if(!(writing == true || freezing == true || box == true || uv == true)) System.out.println("Raiju");
-        if(!(emf == true || box == true || uv == true || dots == true)) System.out.println("Revenant");
-        if(!(box == true || uv == true || dots == true || orb == true)) System.out.println("Shade");
-        if(!(uv == true || dots == true || orb == true || freezing == true)) System.out.println("Spirit");
-        if(!(uv == true || freezing == true || box == true || emf == true)) System.out.println("Thaye");
-        if(!(emf == true || writing == true || orb == true || dots == true)) System.out.println("The Mimic");
-        if(!(writing == true || orb == true || dots == true || uv == true)) System.out.println("The Twins");
-        if(!(writing == true || orb == true || uv == true || freezing == true)) System.out.println("Wraith");
-        if(!(writing == true || uv == true || emf == true || box == true)) System.out.println("Yurei");
-        if(!(writing == true || uv == true || emf == true || freezing == true)) System.out.println("Yokai");
-        if(dots == true) System.out.println("[X]1) D.O.T.S."); 
-        else System.out.println("[ ]1) D.O.T.S.");
-        if(emf == true) System.out.println("[X]2) EMF Level 5");
-        else System.out.println("[ ]2) EMF Level 5");
-        if(freezing == true)System.out.println("[X]3) Freezing Tempratures");
-        else System.out.println("[ ]3) Freezing Tempratures");
-        if(orb == true) System.out.println("[X]4) Ghost Orb");
-        else System.out.println("[ ]4) Ghost Orb");
-        if(writing == true) System.out.println("[X]5) Ghost Writing");
-        else System.out.println("[ ]5) Ghost Writing");
-        if(box == true) System.out.println("[X]6) Spirit Box");
-        else System.out.println("[ ]6) Spirit Box");
-        if(uv == true) System.out.println("[X]7) Ultraviolet");
-        else System.out.println("[ ]7) Ghost Orb");
-        System.out.println("8) No evidence to enter");
-        System.out.println("Enter Evidence");
-        int evidence = input.nextInt();
-        switch (evidence){
-            case 1:
-                if(dots == false) dots = true;
-                else dots = false;
-            break;
-            case 4:
-                if(orb == false) orb = true;
-                else orb = false;
-            break;
-            case 5:
-                if(writing == false) writing = true;
-                else writing = false;
-            break;
-            case 6:
-                if(box == false) box = true;
-                else box = false;
-            break;
-            case 7:
-                if(uv == false) uv = true;
-                else uv = false;
-            break;
-            case 3:
-                if(freezing == false) freezing = true;
-                else freezing = false;
-            break;
-            case 2:
-                if(emf == false) emf = true;
-                else emf = false;
-            break;
+        clear();
+        System.out.println("1) Select Ghost Type");
+        System.out.println("2) Enter Evidence");
+        System.out.println("3) Read about Ghosts");
+        if(input.nextInt() == 1){
+            clear();
+            if(!(freezing == true || writing == true || box == true || emf == true)) System.out.println("1) Banshee"); 
+            if(!(box == true || emf == true || dots == true || orb == true)) System.out.println("2) Demon");
+            if(!(emf == true || orb == true || freezing == true || uv == true)) System.out.println("3) Deogen");
+            if(!(freezing == true || writing == true || uv == true || dots == true)) System.out.println("4) Dayan");
+            if(!(freezing == true || writing == true || dots == true || box == true)) System.out.println("5) Gallu");
+            if(!(freezing == true || writing == true || box == true || orb == true)) System.out.println("6) Goryo");
+            if(!(writing == true || box == true || emf == true || dots == true)) System.out.println("7) Hantu");
+            if(!(writing == true || box == true || orb == true || dots == true)) System.out.println("8) Jinn");
+            if(!(dots == true || freezing == true || emf == true || uv == true)) System.out.println("9) Mare");
+            if(!(dots == true || emf == true || uv == true || orb == true)) System.out.println("10) Moroi");
+            if(!(dots == true || orb == true || freezing == true || box == true)) System.out.println("11) Myling");
+            if(!(dots == true || freezing == true || box == true || writing == true)) System.out.println("12) Obake");
+            if(!(freezing == true || box == true || emf == true || orb == true)) System.out.println("13) Obambo");
+            if(!(box == true || orb == true || writing == true || uv == true)) System.out.println("14) Oni");
+            if(!(writing == true || uv == true || dots == true || emf == true)) System.out.println("15) Onryo");
+            if(!(writing == true || emf == true || orb == true || freezing == true)) System.out.println("16) Phantom");
+            if(!(emf == true || orb == true || freezing == true || dots == true)) System.out.println("17) Poltergeist");
+            if(!(writing == true || freezing == true || box == true || uv == true)) System.out.println("18) Raiju");
+            if(!(emf == true || box == true || uv == true || dots == true)) System.out.println("19) Revenant");
+            if(!(box == true || uv == true || dots == true || orb == true)) System.out.println("20) Shade");
+            if(!(uv == true || dots == true || orb == true || freezing == true)) System.out.println("21) Spirit");
+            if(!(uv == true || freezing == true || box == true || emf == true)) System.out.println("22) Thaye");
+            if(!(emf == true || writing == true || orb == true || dots == true)) System.out.println("23) The Mimic");
+            if(!(writing == true || orb == true || dots == true || uv == true)) System.out.println("24) The Twins");
+            if(!(writing == true || orb == true || uv == true || freezing == true)) System.out.println("25) Wraith");
+            if(!(writing == true || uv == true || emf == true || box == true)) System.out.println("26) Yurei");
+            if(!(writing == true || uv == true || emf == true || freezing == true)) System.out.println("27) Yokai");
+            System.out.println("Enter Ghost type");
+            System.out.println("Current Ghost Selected: " + ghostType);
+            ghostType = input.nextInt();
+        } else if(input.nextInt() == 2){
+            clear();
+            if(dots == true) System.out.println("[X]1) D.O.T.S."); 
+            else System.out.println("[ ]1) D.O.T.S.");
+            if(emf == true) System.out.println("[X]2) EMF Level 5");
+            else System.out.println("[ ]2) EMF Level 5");
+            if(freezing == true)System.out.println("[X]3) Freezing Tempratures");
+            else System.out.println("[ ]3) Freezing Tempratures");
+            if(orb == true) System.out.println("[X]4) Ghost Orb");
+            else System.out.println("[ ]4) Ghost Orb");
+            if(writing == true) System.out.println("[X]5) Ghost Writing");
+            else System.out.println("[ ]5) Ghost Writing");
+            if(box == true) System.out.println("[X]6) Spirit Box");
+            else System.out.println("[ ]6) Spirit Box");
+            if(uv == true) System.out.println("[X]7) Ultraviolet");
+            else System.out.println("[ ]7) Ghost Orb");
+            System.out.println("8) No evidence to enter");
+            System.out.println("Enter Evidence");
+            int evidence = input.nextInt();
+            switch (evidence){
+                case 1:
+                    if(dots == false) dots = true;
+                    else dots = false;
+                break;
+                case 4:
+                    if(orb == false) orb = true;
+                    else orb = false;
+                break;
+                case 5:
+                    if(writing == false) writing = true;
+                    else writing = false;
+                break;
+                case 6:
+                    if(box == false) box = true;
+                    else box = false;
+                break;
+                case 7:
+                    if(uv == false) uv = true;
+                    else uv = false;
+                break;
+                case 3:
+                    if(freezing == false) freezing = true;
+                    else freezing = false;
+                break;
+                case 2:
+                    if(emf == false) emf = true;
+                    else emf = false;
+                break;
+            }
+        } else if(input.nextInt() == 3){
+            clear();
+            System.out.println("Select Ghost to read about");
+            System.out.println("1) Banshee"); 
+            System.out.println("2) Demon");
+            System.out.println("3) Deogen");
+            System.out.println("4) Dayan");
+            System.out.println("5) Gallu");
+            System.out.println("6) Goryo");
+            System.out.println("7) Hantu");
+            System.out.println("8) Jinn");
+            System.out.println("9) Mare");
+            System.out.println("10) Moroi");
+            System.out.println("11) Myling");
+            System.out.println("12) Obake");
+            System.out.println("13) Obambo");
+            System.out.println("14) Oni");
+            System.out.println("15) Onryo");
+            System.out.println("16) Phantom");
+            System.out.println("17) Poltergeist");
+            System.out.println("18) Raiju");
+            System.out.println("19) Revenant");
+            System.out.println("20) Shade");
+            System.out.println("21) Spirit");
+            System.out.println("22) Thaye");
+            System.out.println("23) The Mimic");
+            System.out.println("24) The Twins");
+            System.out.println("25) Wraith");
+            System.out.println("26) Yurei");
+            System.out.println("27) Yokai");
+            switch (input.nextInt()){
+                case 1:
+                    clear();
+                    System.out.println("Ghost Name");
+                    System.out.println("Lore");
+                    System.out.println("\nAbility");
+                    System.out.println("\nEvidence: ");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("\nPress Enter to continue");
+                    input.nextLine();
+                    input.nextLine();
+                break;
+            }
         }
     }
 }
