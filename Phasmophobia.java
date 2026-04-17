@@ -312,163 +312,271 @@ class Phasmophobia{
                 switch (input.nextInt()){
                     case 1:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Banshee");
+                        System.out.println("The singing siren, known for attracting its victims through song.\nIt has been known to single out its prey before making a killing blow.");
+                        System.out.println("\nAbility:\nIncreased chance of performing a singing event.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nGhost Orb\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 2:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Demon");
+                        System.out.println("A Demon is one of the worst ghosts you can encounter.\nIt has been known to attack without reason.");
+                        System.out.println("\nAbility:\nCan rarely initiate a hunt at any sanity level.");
+                        System.out.println("\nEvidence:\nFreezing Tempratures\nGhost Writing\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 3:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Deogen");
+                        System.out.println("Sometimes surrounded by an endless fog, Deogen have been eluding ghost hunters for years.\nThese ghosts have been reported to find even the most hidden prey, before stalking them into exhaustion.");
+                        System.out.println("\nAbility:\nAlways knows the location of the player during a hunt.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nGhost Writing\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 4:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Dayan");
+                        System.out.println("The Dayan is born from the soul of someone who suffered immense cruelty in life.\nNow, in death, she is hyper-vigilant of anyone who 'dances' too close.");
+                        System.out.println("\nAbility:\nMoves faster if the player is moving.");
+                        System.out.println("\nEvidence:\nEMF Level 5\nGhost Orb\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 5:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Gallu");
+                        System.out.println("Another form of demon, the Gallu is a reminder that death comes for us all.\nUsing protective equipment provokes the ghost until it's no longer effective.");
+                        System.out.println("\nAbility:\nBecomes aggressive when protective equipment is used.");
+                        System.out.println("\nEvidence:\nEMF Level 5\nGhost Orb\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 6:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Goryo");
+                        System.out.println("When a Goryo passes through a DOTS projector, using a video camera is the only way to see it.");
+                        System.out.println("\nAbility:\nIts D.O.T.S. silhouette can only be seen through a video camera");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nEMF Level 5\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 7:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Hantu");
+                        System.out.println("Hantu is a rare ghost that thrives in the coldest climates.\nThe cold seems to make them more aggressive and empowered.");
+                        System.out.println("\nAbility:\nMoves faster in lower tempratures");
+                        System.out.println("\nEvidence:\nFreezing Tempratures\nGhost Orb\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 8:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Jinn");
+                        System.out.println("A Jinn is a territorial ghost that will attack when threatened.\nIt has also been known to be able to travel at significant speed.");
+                        System.out.println("\nAbility:\nMoves faster if the player is far away");
+                        System.out.println("\nEvidence:\nEMF Level 5\nFreezing Tempatures\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 9:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Mare");
+                        System.out.println("A Mare is the source of all nightmares, making it most powerful in the dark.");
+                        System.out.println("\nAbility:\nWill never turn a light on.");
+                        System.out.println("\nEvidence:\nGhost Orb\nGhost Writing\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 10:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Moroi");
+                        System.out.println("Moroi have risen from the grave to drain energy from the living.\nThey have been known to place curses on their victims, curable only by antidotes or moving very far away.");
+                        System.out.println("\nAbility:\nMoves faster based on player sanity");
+                        System.out.println("\nEvidence:\nFreezing Tempratures\nGhost Writing\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 11:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Myling");
+                        System.out.println("A Myling is a very vocal and active ghost.\nThey are rumoured to be quiet when hunting their prey.");
+                        System.out.println("\nAbility:\nProduced paranormal sounds more frequently");
+                        System.out.println("\nEvidence:\nEMF Level 5\nGhost Writing\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 12:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Obake");
+                        System.out.println("Obake are terrifying shape-shifters, capable of taking on many forms.\nThey have been seen taking on humanoid shapes to attract their prey.");
+                        System.out.println("\nAbility:\nHas a small chance of leaving special fingerprints.");
+                        System.out.println("\nEvidence:\nEMF Level 5\nGhost Orb\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 13:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Obambo");
+                        System.out.println("The Obambo is the ghost of someone never properly laid to rest.\nFickle and defensive, it flickers between states of calm and aggression.");
+                        System.out.println("\nAbility:\nHunts earlier and moves faster in its aggressive state.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nGhost Writing\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 14:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Oni");
+                        System.out.println("Onis love to scare their victims as much as possible before attacking.\nThey are often seen in their physical form, guarding their place of death.");
+                        System.out.println("\nAbility:\nIncreased activity when players are nearby.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nEMF Level 5\nFreezing Tempratures");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 15:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Onyro");
+                        System.out.println("The Onryo is often referred to as \"The Wrathful Spirit\".\nIt steals souls from dying victims' bodies to seek revenge.\nThis ghost has been known to fear any form of fire, and will do anything to be far from it.");
+                        System.out.println("\nAbility:\nWill attempt to hunt after it has extinguished three flames regardless of average sanity.");
+                        System.out.println("\nEvidence:\nFreexing Tempatures\nGhost Orb\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 16:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Phantom");
+                        System.out.println("A Phantom is a ghost that can possess the living, inducing fear into those around it.\nThey are most commonly summoned from Ouija Boards.");
+                        System.out.println("\nAbility:\nWill walk to players location, despite there location in the house");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nSpirit Box\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 17:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Poltergist");
+                        System.out.println("One of the most famous ghosts, the Poltergeist.\nKnown to manipulate objects around it to spread fear into its victims.");
+                        System.out.println("\nAbility:\nCapable of throwing multiple objects at once.");
+                        System.out.println("\nEvidence:\nGhost Writing\nSpirit Box\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 18:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Raiju");
+                        System.out.println("A Raiju is a demon that thrives on electrical current.\nWhile generally calm, they can become agitated when overwhelmed with power.");
+                        System.out.println("\nAbility:\nMoves faster near active electronic equipment.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nEMF Level 5\nGhost Orb");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 19:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Revenant");
+                        System.out.println("A Revenant is a violent ghost that will attack indiscriminately.\nTheir speed can be deceiving, as they are slow while dormant; however, as soon as they hunt they can move incredibly fast.");
+                        System.out.println("\nAbility:\nMoves significantly faster when a player is detected during a hunt.");
+                        System.out.println("\nEvidence:\nFreezing Tempratures\nGhost Orb\nGhost Writing");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 20:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Shade");
+                        System.out.println("A Shade is known to be very shy.\nThere is evidence to suggest that a Shade will stop all paranormal activity if there are people nearby.");
+                        System.out.println("\nAbility:\nCannot hunt, interact, or event if people are nearby");
+                        System.out.println("\nEvidence:\nEMF Level 5\nFreezing Tempratures\nGhost Writing");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 21:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Spirit");
+                        System.out.println("Spirits are very common ghosts.\nThey are very powerful, but passive, only attacking when they need to.\nThey defend their place of death to the utmost degree, killing anyone that is caught overstaying their welcome.");
+                        System.out.println("\nAbility:\nNone");
+                        System.out.println("\nEvidence:\nEMF Level 5\nGhost Writing\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 22:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Thaye");
+                        System.out.println("Thaye have been known to rapidly age over time, even in the afterlife.\nFrom what we've learned, they seem to deteriorate faster while within the presence of the living.");
+                        System.out.println("\nAbility:\nBecomes slower and less active over time when players are nearby.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nGhost Orb\nGhost Writing");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 23:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("The Mimic");
+                        System.out.println("The Mimic is an elusive, mysterious, copycat ghost that mirrors traits and behaviours from others, including other ghost types.");
+                        System.out.println("\nAbility:\nCan mimic the abilities and traits of other ghosts.");
+                        System.out.println("\nEvidence:\nFreezing\nSpirit Box\nUltraviolet");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 24:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("The Twins");
+                        System.out.println("These ghosts have been reported to mimic each other's actions.\nThey alternate their attacks to confuse their prey.");
+                        System.out.println("\nAbility:\nAlternates speed bettween hunts.");
+                        System.out.println("\nEvidence:\nEMF Level 5\nFreezing Tempatures\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 25:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Wraith");
+                        System.out.println("Wraiths are one of the most dangerous ghosts you will find.\nIt is also the only known ghost that has the ability of flight and has sometimes been known to travel through walls.");
+                        System.out.println("\nAbility:\nWill always event near the player.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nEMF Level 5\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 26:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Yurei");
+                        System.out.println("A Yurei is a ghost that has returned to the physical world, usually for the purpose of revenge or hatred.");
+                        System.out.println("\nAbility:\nUsing its ability causes it to slam doors.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nFreezong Tempratures\nGhost Orb");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
                     case 27:
                         clear();
-                        System.out.println("Ghost Name\nLore\n\nAbility\nEvidence:\nevidence1\nevidence2\nevidence3\n\nPress Enter to continue");
+                        System.out.println("Yokai");
+                        System.out.println("Yokai are common ghosts that are attracted to human voices.\nThey can usually be found haunting family homes.");
+                        System.out.println("\nAbility:\nCan only detect players within a short radius during a hunt.");
+                        System.out.println("\nEvidence:\nD.O.T.S.\nGhost Orb\nSpirit Box");
+                        System.out.println("\nPress Enter to Continue");
                         input.nextLine();
                         input.nextLine();
                     break;
