@@ -12,6 +12,8 @@ class Phasmophobia{
     public static boolean uv = false;
     public static int ghostGuess = 0;
     public static int ghostType = 0;
+    //main, boys, mainbath, nursery, masterbed, mastercloset, masterbath, basement, utility, garage
+    public static boolean doors[] = {true, true, true, true, true, true, true, true, true, true};
     public static void main(String[] args){
         ghosts();
         boolean leaveGame = false;
@@ -44,7 +46,7 @@ class Phasmophobia{
         for(int a = 0; a < ghostTypes[0].length; a++){
             if(ghostTypes[0][a].equals(ghost[0])){
                 ghostType = a + 1;
-                System.out.println(a);
+                //System.out.println(a);
             }
         }
     }
@@ -54,31 +56,31 @@ class Phasmophobia{
         //light switch (on / off)
         //throwable
         //window
-        int tangleWood[][] = {
+       int tangleWood[][] = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,3,3,0,1,0,0,1,3,3,0,0,3,1,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,3,1},
             {1,3,0,0,1,0,0,1,3,0,0,3,3,1,0,0,1,0,3,3,3,0,1,1,0,0,0,0,0,0,0,3,1},
             {1,3,0,0,1,0,0,1,3,0,0,0,3,1,0,0,1,0,3,3,3,0,1,1,0,0,0,0,0,0,0,3,1},
-            {1,1,1,0,1,0,1,1,3,0,3,0,3,1,0,0,1,0,3,3,3,0,1,1,0,0,1,0,0,0,0,3,1},
+            {1,1,1,7,1,7,1,1,3,0,3,0,3,1,0,0,1,0,3,3,3,0,1,1,0,0,1,0,0,0,0,3,1},
             {1,3,3,0,0,0,0,1,3,0,0,0,3,1,0,0,1,0,0,0,0,0,1,1,0,0,1,3,3,0,0,3,1},
             {1,0,0,0,0,0,3,1,3,0,0,0,3,1,0,0,1,0,0,0,0,3,1,1,0,0,1,0,0,0,0,0,1},
-            {1,0,3,3,0,0,3,1,3,0,0,0,3,1,1,0,1,0,0,0,0,3,1,1,0,0,1,3,3,0,3,3,1},
+            {1,0,3,3,0,0,3,1,3,0,0,0,3,1,1,7,1,0,0,0,0,3,1,1,0,0,1,3,3,0,3,3,1},
             {1,3,3,3,0,0,3,1,3,0,0,0,0,0,0,0,0,0,0,0,0,3,1,1,0,0,1,0,0,0,0,0,1},
-            {1,1,1,1,1,0,0,1,3,0,0,0,0,0,0,0,0,0,3,3,0,3,1,1,1,0,1,3,3,0,3,3,1},
-            {1,0,0,2,1,0,1,1,3,0,0,1,1,1,0,1,1,0,3,3,0,3,1,1,1,1,1,2,0,0,0,0,1},
+            {1,1,1,1,1,0,0,1,3,0,0,0,0,0,0,0,0,0,3,3,0,3,1,1,1,7,1,3,3,0,3,3,1},
+            {1,0,0,2,1,7,1,1,3,0,0,1,1,1,7,1,1,0,3,3,0,3,1,1,1,1,1,2,0,0,0,0,1},
             {1,3,0,3,1,0,0,0,0,0,0,1,3,0,0,0,1,0,3,3,0,3,1,1,1,1,1,1,1,1,1,1,1},
             {1,0,0,3,1,0,0,0,0,0,0,1,3,0,0,0,1,0,3,3,0,3,1,1,1,1,1,1,1,1,1,1,1},
             {1,0,0,0,1,1,1,1,0,0,1,1,3,0,0,0,1,0,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
-            {1,3,0,0,0,0,0,1,0,0,2,1,3,0,0,0,1,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1},
-            {1,3,3,3,1,0,0,1,0,0,2,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,0,0,7,0,0,1,0,0,2,1,3,0,0,0,1,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,3,3,1,0,0,1,0,0,2,1,1,1,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,0,0,1,0,0,1,1,3,0,0,0,0,0,0,0,3,3,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,2,0,0,1,0,0,1,1,3,0,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,2,0,0,1,0,3,1,1,3,0,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1,1,1,1,1},
             {1,1,1,1,1,0,0,0,0,3,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
             {1,3,3,3,1,0,0,0,0,3,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
             {1,3,0,0,1,0,0,1,0,0,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
-            {1,3,0,0,0,0,0,1,0,0,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
-            {1,1,1,1,1,0,1,1,1,0,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,3,0,0,7,0,0,1,0,0,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,7,1,1,1,7,1,1,3,0,0,3,3,3,3,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
             {1,3,3,3,0,0,0,1,2,2,2,1,3,0,0,0,0,0,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
             {1,3,0,0,0,0,0,1,2,2,2,1,3,0,0,0,0,0,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1},
             {1,3,0,0,0,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -95,7 +97,7 @@ class Phasmophobia{
             playerX = 8;
             playerY = 15;
         }
-        //System.out.println(playerX + " " + playerY);
+        System.out.println(playerX + " " + playerY);
         return tangleWood;
     }
     public static void printMap(){
@@ -132,6 +134,14 @@ class Phasmophobia{
                         //ghost
                         System.out.print("<>");
                     break;
+                    case 6:
+                        //closed door
+                        System.out.print("==");
+                    break;
+                    case 7:
+                        //Open door
+                        System.out.print("||");
+                    break;
                 }
             }
             System.out.println();
@@ -146,32 +156,19 @@ class Phasmophobia{
         String direction = input.nextLine();
         switch (direction){
             case "w":
-                if(map[playerX - 1][playerY] == 0 || map[playerX - 1][playerY] == 2)
-                playerX--;
+                if(map[playerX - 1][playerY] == 0 || map[playerX - 1][playerY] == 2 || map[playerX - 1][playerY] == 7) playerX--;
             break;
             case "a":
-                if(map[playerX][playerY - 1] == 0 || map[playerX][playerY - 1] == 2)
-                playerY--;
+                if(map[playerX][playerY - 1] == 0 || map[playerX][playerY - 1] == 2 || map[playerX][playerY - 1] == 7) playerY--;
             break;
             case "s":
-                if(map[playerX + 1][playerY] == 0 || map[playerX + 1][playerY] == 2)
-                playerX++;
+                if(map[playerX + 1][playerY] == 0 || map[playerX + 1][playerY] == 2 || map[playerX + 1][playerY] == 7) playerX++;
             break;
             case "d":
-                if(map[playerX][playerY + 1] == 0 || map[playerX][playerY + 1] == 2)
-                playerY++;
+                if(map[playerX][playerY + 1] == 0 || map[playerX][playerY + 1] == 2 || map[playerX][playerY + 1] == 7) playerY++;
             break;
             case "j":
                 journal();
-            break;
-            case "e":
-
-            break;
-            case "r":
-
-            break;
-            case "f":
-
             break;
             case "c":
                 System.out.println("w) move up");
@@ -179,9 +176,6 @@ class Phasmophobia{
                 System.out.println("s) move right");
                 System.out.println("d) move down");
                 System.out.println("j) open journal");
-                System.out.println("e) grab item");
-                System.out.println("r) drop item");
-                System.out.println("f) interact");
                 System.out.println("Press Enter to continue");
                 input.nextLine();
                 printMap();
