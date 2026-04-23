@@ -12,7 +12,8 @@ class Phasmophobia{
     public static boolean uv = false;
     public static int ghostGuess = 0;
     public static int ghostType = 0;
-    //main, boys, mainbath, nursery, masterbed, mastercloset, masterbath, basement, utility, garage
+    public static String currentRoom = "";
+    //main, boys, mainbath, nursery, masterbed, mastercloset, masterbath, basement, utility, garaBage
     public static boolean doors[] = {true, true, true, true, true, true, true, true, true, true};
     public static void main(String[] args){
         ghosts();
@@ -146,6 +147,7 @@ class Phasmophobia{
             }
             System.out.println();
         }
+        hud();
     }
     public static void playerInput(){
         int[][] map = mainMap();
@@ -181,6 +183,24 @@ class Phasmophobia{
                 printMap();
             break;
         }
+    }
+    public static void room(){
+        if((playerX > 0 && playerY > 0) && (playerY < 7 && playerX < 9)) currentRoom = "Master Bedroom";
+        else if((playerY > 8 && playerX > 0) && (playerY < 13 && playerX < 10)) currentRoom = "Living Room";
+        else if((playerY > 23 && playerX > 0) && (playerY < 32 && playerX < 11)) currentRoom = "Basement";
+        else if((playerY > 11 && playerX > 16) && (playerY < 22 && playerX < 26)) currentRoom = "Garage";
+        else if((playerY > 16 && playerX > 0) && (playerY < 22 && playerX < 7)) currentRoom = "Dining Room";
+        else if((playerY > 16 && playerX > 8) && (playerY < 22 && playerX < 15)) currentRoom = "Kitchen";
+        else if((playerY > 4 && playerX > 13) && (playerY < 10 && playerX < 23)) currentRoom = "Foyer";
+        else if((playerY > 0 && playerX > 24) && (playerY < 7 && playerX < 29)) currentRoom = "Boy's Bedroom";
+        else if((playerY > 0 && playerX > 10) && (playerY < 3 && playerX < 16)) currentRoom = "Nursery";
+        else if((playerY > 11 && playerX > 11) && (playerY < 15 && playerX < 15)) currentRoom = "Utility Room";
+        else if((playerY > 0 && playerX > 19) && (playerY < 3 && playerX < 23)) currentRoom = "Bathroom";
+        else currentRoom = "";
+    }
+    public static void hud(){
+        room();
+        System.out.println("Current Room: " + currentRoom);
     }
     public static void journal(){
         Scanner input = new Scanner(System.in);
