@@ -3,17 +3,15 @@ import java.util.Scanner;
 class Phasmophobia{
     public static int playerX = 29;
     public static int playerY = 9;
-    public static boolean dots = false;
-    public static boolean emf = false;
-    public static boolean freezing = false;
-    public static boolean orb = false;
-    public static boolean writing = false;
-    public static boolean box = false;
-    public static boolean uv = false;
-    public static int ghostGuess = 0;
+    public static int sanity = 99;
+    public static int ghostX = 0;
+    public static int ghostY = 0;
     public static int ghostType = 0;
+    public static String ghostroom = "";
     public static String currentRoom = "";
-    //main, boys, mainbath, nursery, masterbed, mastercloset, masterbath, basement, utility, garaBage
+    public static boolean gEvent = false;
+    public static boolean gInteract = false;
+    //main, boys, mainbath, nursery, masterbed, mastercloset, masterbath, basement, utility, garage
     public static boolean doors[] = {true, true, true, true, true, true, true, true, true, true};
     public static void main(String[] args){
         ghosts();
@@ -21,6 +19,7 @@ class Phasmophobia{
         printMap();
         do{
             playerInput();
+            ghostActive();
             printMap();
         }while(leaveGame == false);
     }
@@ -43,6 +42,65 @@ class Phasmophobia{
         ghost[2] = ghostTypes[2][i];
         ghost[3] = ghostTypes[3][i];
         ghost[4] = ghostTypes[4][i];
+        int froom = r.nextInt(11);
+        switch(froom + 1){
+            case 1:
+                ghostroom = "Foyer";
+                ghostX = 19;
+                ghostY = 7;
+            break;
+            case 2:
+                ghostroom = "Bathroom";
+                ghostX = 21;
+                ghostY = 2;
+            break;
+            case 3:
+                ghostroom = "Boy's Bedroom";
+                ghostX = 26;
+                ghostY = 3;
+            break;
+            case 4:
+                ghostroom = "Nursery";
+                ghostX = 12;
+                ghostY = 2;
+            break;
+            case 5:
+                ghostroom = "Master Bedroom";
+                ghostX = 5;
+                ghostY = 4;
+            break;
+            case 6:
+                ghostroom = "Living Room";
+                ghostX = 5;
+                ghostY = 10;
+            break;
+            case 7:
+                ghostroom = "Utility Room";
+                ghostX = 12;
+                ghostY = 14;
+            break;
+            case 8:
+                ghostroom = "Kitchen";
+                ghostX = 13;
+                ghostY = 18;
+            break;
+            case 9:
+                ghostroom = "Dining Room";
+                ghostX = 5;
+                ghostY = 19;
+            break;
+            case 10:
+                ghostroom = "Basement";
+                ghostX = 6;
+                ghostY = 29;
+            break;
+            case 11:
+                ghostroom = "Garage";
+                ghostX = 18;
+                ghostY = 17;
+            break;
+        }
+        System.out.println(ghostroom + " " + froom);
         System.out.println(ghost[0] + " " + ghost[1] + " " + ghost[2] + " " + ghost[3] + " " + ghost[4]);
         for(int a = 0; a < ghostTypes[0].length; a++){
             if(ghostTypes[0][a].equals(ghost[0])){
@@ -50,6 +108,123 @@ class Phasmophobia{
                 //System.out.println(a);
             }
         }
+        
+    }
+    public static void ghostActive(){
+        int eventChance = (-2 * sanity) + 200;
+        if(currentRoom.equals(ghostroom)){
+            Random r = new Random();
+            if(eventChance < 50){
+                eventChance = (-2 * sanity) + 200;
+            } else {
+                eventChance = 50;
+            }   
+        if((r.nextInt(100)+1) < eventChance){
+            gEvent = true;
+        }
+        }
+    }
+    public static void ghostEvent(){
+        Random r = new Random();
+        int chance = r.nextInt(100) + 1;
+        switch(ghostType){
+            case 1: //banshee
+        
+            break;
+            case 9: //mare
+
+            break;
+            case 11://myling
+
+            break;
+            case 14://oni
+
+            break;
+            case 20://shade
+
+            break;
+            default://normal ghost
+                if(chance <= 20){
+                switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("The Ghost is singing!");
+                    break;
+                    case 1:
+                        System.out.println("Where is that humming coming from?");
+                    break;
+                    case 2:
+                        System.out.println("That's a creepy song...");
+                    break;
+                    case 3:
+                        System.out.println("Do I hear... singing?");
+                    break;
+                    case 4:
+                        System.out.println("Ring around the rosey...");
+                    break;
+                }
+                } 
+                if(chance > 20 && chance <= 33){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("The lights flickered!");
+                    break;
+                    case 1:
+                        System.out.println("What happened to the lights?");
+                    break;
+                    case 2:
+                        System.out.println("THE LIGHTS JUST WENT RED!");
+                    break;
+                    case 3:
+                        System.out.println("It just turned the lights off...");
+                    break;
+                    case 4:
+                        System.out.println("I can't see anything...");
+                    break;
+                }
+                }
+                if(chance > 33 && chance <= 80){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("I can see the ghost!");
+                    break;
+                    case 1:
+                        System.out.println("Hello there!");
+                    break;
+                    case 2:
+                        System.out.println("It just appeared!");
+                    break;
+                    case 3:
+                        System.out.println("Did thar shadow just move?");
+                    break;
+                    case 4:
+                        System.out.println("Its walking toward me!");
+                    break;
+                }
+                }
+                if(chance > 80){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Did it just scream?!");
+                    break;
+                    case 1:
+                        System.out.println("Am I hearing things?");
+                    break;
+                    case 2:
+                        System.out.println("The Ghost made a noise!");
+                    break;
+                    case 3:
+                        System.out.println("Is it... talking?");
+                    break;
+                    case 4:
+                        System.out.println("The room echos with melodius shrieks");
+                    break;
+                }
+                }
+            break;
+        }
+    }
+    public static void ghostInteraction(){
+
     }
     public static int[][] mainMap(){
         //door (open / closed)
@@ -90,6 +265,7 @@ class Phasmophobia{
             {1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
         };
         tangleWood[playerX][playerY] = 4;
+        tangleWood[ghostX][ghostY] = 5;
         if(tangleWood[7][15] == 4){
             playerX = 8;
             playerY = 25;
@@ -201,7 +377,23 @@ class Phasmophobia{
     public static void hud(){
         room();
         System.out.println("Current Room: " + currentRoom);
+        if(gEvent){
+            ghostEvent();
+            gEvent = false;
+        }
+        if(gInteract){
+            ghostInteraction();
+            gInteract = false;
+        }
     }
+    public static boolean dots = false;
+    public static boolean emf = false;
+    public static boolean freezing = false;
+    public static boolean orb = false;
+    public static boolean writing = false;
+    public static boolean box = false;
+    public static boolean uv = false;
+    public static int ghostGuess = 0;
     public static void journal(){
         Scanner input = new Scanner(System.in);
         clear();
