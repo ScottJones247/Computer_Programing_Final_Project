@@ -3,7 +3,7 @@ import java.util.Scanner;
 class Phasmophobia{
     public static int playerX = 29;
     public static int playerY = 9;
-    public static int sanity = 99;
+    public static int sanity = 100;
     public static int ghostX = 0;
     public static int ghostY = 0;
     public static int ghostType = 0;
@@ -11,6 +11,7 @@ class Phasmophobia{
     public static String currentRoom = "";
     public static boolean gEvent = false;
     public static boolean gInteract = false;
+    public static boolean appear = false;
     //main, boys, mainbath, nursery, masterbed, mastercloset, masterbath, basement, utility, garage
     public static boolean doors[] = {true, true, true, true, true, true, true, true, true, true};
     public static void main(String[] args){
@@ -129,25 +130,251 @@ class Phasmophobia{
         int chance = r.nextInt(100) + 1;
         switch(ghostType){
             case 1: //banshee
-        
+                if(chance <= 47){
+                switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A eerie humming can he heard, soft and familliar");
+                        System.out.println("It becons you to come and join it in the life beyond");
+                    break;
+                    case 1:
+                        System.out.println("Where is that humming coming from?");
+                    break;
+                    case 2:
+                        System.out.println("That's a creepy song...");
+                    break;
+                    case 3:
+                        System.out.println("Do I hear... singing?");
+                    break;
+                    case 4:
+                        System.out.println("Ring around the rosey...");
+                    break;
+                }
+                } 
+                if(chance > 47 && chance <= 60){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Somewhere in the house, you hear a lightbulb shatter");
+                    break;
+                    case 1:
+                        System.out.println("Where did the lights go?");
+                    break;
+                    case 2:
+                        System.out.println("THE LIGHTS JUST WENT RED!");
+                    break;
+                    case 3:
+                        System.out.println("You hear a soft click as the lights in the room fade to black");
+                    break;
+                    case 4:
+                        System.out.println("I can't see anything...");
+                    break;
+                }
+                }
+                if(chance > 60 && chance <= 80){
+                    appear = true;
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A figure dances across the walls, shadowy in form");
+                    break;
+                    case 1:
+                        System.out.println("Hello there!");
+                    break;
+                    case 2:
+                        System.out.println("What is that?");
+                    break;
+                    case 3:
+                        System.out.println("Did thar shadow just move?");
+                    break;
+                    case 4:
+                        System.out.println("A shiver runs down your spine as a hollowed form of the Ghost crosses your vision");
+                    break;
+                }
+                }
+                if(chance > 80){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Did it just scream?!");
+                    break;
+                    case 1:
+                        System.out.println("Am I hearing things?");
+                    break;
+                    case 2:
+                        System.out.println("The silent whispers from the dead fill the room");
+                    break;
+                    case 3:
+                        System.out.println("Is it... talking?");
+                    break;
+                    case 4:
+                        System.out.println("The room echos with melodius shrieks");
+                    break;
+                }
+                }
             break;
             case 9: //mare
-
-            break;
-            case 11://myling
-
-            break;
-            case 14://oni
-
-            break;
-            case 20://shade
-
-            break;
-            default://normal ghost
                 if(chance <= 20){
                 switch (r.nextInt(5)){
                     case 0:
-                        System.out.println("The Ghost is singing!");
+                        System.out.println("A eerie humming can he heard, soft and familliar");
+                        System.out.println("It becons you to come and join it in the life beyond");
+                    break;
+                    case 1:
+                        System.out.println("Where is that humming coming from?");
+                    break;
+                    case 2:
+                        System.out.println("That's a creepy song...");
+                    break;
+                    case 3:
+                        System.out.println("Do I hear... singing?");
+                    break;
+                    case 4:
+                        System.out.println("Ring around the rosey...");
+                    break;
+                }
+                } 
+                if(chance > 20 && chance <= 36){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Somewhere in the house, you hear a lightbulb shatter");
+                    break;
+                    case 1:
+                        System.out.println("Where did the lights go?");
+                    break;
+                    case 2:
+                        System.out.println("THE LIGHTS JUST WENT RED!");
+                    break;
+                    case 3:
+                        System.out.println("You hear a soft click as the lights in the room fade to black");
+                    break;
+                    case 4:
+                        System.out.println("I can't see anything...");
+                    break;
+                }
+                }
+                if(chance > 36 && chance <= 80){
+                    appear = true;
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A figure dances across the walls, shadowy in form");
+                    break;
+                    case 1:
+                        System.out.println("Hello there!");
+                    break;
+                    case 2:
+                        System.out.println("What is that?");
+                    break;
+                    case 3:
+                        System.out.println("Did thar shadow just move?");
+                    break;
+                    case 4:
+                        System.out.println("A shiver runs down your spine as a hollowed form of the Ghost crosses your vision");
+                    break;
+                }
+                }
+                if(chance > 80){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Did it just scream?!");
+                    break;
+                    case 1:
+                        System.out.println("Am I hearing things?");
+                    break;
+                    case 2:
+                        System.out.println("The silent whispers from the dead fill the room");
+                    break;
+                    case 3:
+                        System.out.println("Is it... talking?");
+                    break;
+                    case 4:
+                        System.out.println("The room echos with melodius shrieks");
+                    break;
+                }
+                }
+            break;
+            case 11://myling
+                if(chance <= 0){
+                switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A eerie humming can he heard, soft and familliar");
+                        System.out.println("It becons you to come and join it in the life beyond");
+                    break;
+                    case 1:
+                        System.out.println("Where is that humming coming from?");
+                    break;
+                    case 2:
+                        System.out.println("That's a creepy song...");
+                    break;
+                    case 3:
+                        System.out.println("Do I hear... singing?");
+                    break;
+                    case 4:
+                        System.out.println("Ring around the rosey...");
+                    break;
+                }
+                } 
+                if(chance > 0 && chance <= 13){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Somewhere in the house, you hear a lightbulb shatter");
+                    break;
+                    case 1:
+                        System.out.println("Where did the lights go?");
+                    break;
+                    case 2:
+                        System.out.println("THE LIGHTS JUST WENT RED!");
+                    break;
+                    case 3:
+                        System.out.println("You hear a soft click as the lights in the room fade to black");
+                    break;
+                    case 4:
+                        System.out.println("I can't see anything...");
+                    break;
+                }
+                }
+                if(chance > 13 && chance <= 60){
+                    appear = true;
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A figure dances across the walls, shadowy in form");
+                    break;
+                    case 1:
+                        System.out.println("Hello there!");
+                    break;
+                    case 2:
+                        System.out.println("What is that?");
+                    break;
+                    case 3:
+                        System.out.println("Did thar shadow just move?");
+                    break;
+                    case 4:
+                        System.out.println("A shiver runs down your spine as a hollowed form of the Ghost crosses your vision");
+                    break;
+                }
+                }
+                if(chance > 60){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Did it just scream?!");
+                    break;
+                    case 1:
+                        System.out.println("Am I hearing things?");
+                    break;
+                    case 2:
+                        System.out.println("The silent whispers from the dead fill the room");
+                    break;
+                    case 3:
+                        System.out.println("Is it... talking?");
+                    break;
+                    case 4:
+                        System.out.println("The room echos with melodius shrieks");
+                    break;
+                }
+                }
+            break;
+            case 14://oni
+                if(chance <= 20){
+                switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A eerie humming can he heard, soft and familliar");
+                        System.out.println("It becons you to come and join it in the life beyond");
                     break;
                     case 1:
                         System.out.println("Where is that humming coming from?");
@@ -166,16 +393,176 @@ class Phasmophobia{
                 if(chance > 20 && chance <= 33){
                     switch (r.nextInt(5)){
                     case 0:
-                        System.out.println("The lights flickered!");
+                        System.out.println("Somewhere in the house, you hear a lightbulb shatter");
                     break;
                     case 1:
-                        System.out.println("What happened to the lights?");
+                        System.out.println("Where did the lights go?");
                     break;
                     case 2:
                         System.out.println("THE LIGHTS JUST WENT RED!");
                     break;
                     case 3:
-                        System.out.println("It just turned the lights off...");
+                        System.out.println("You hear a soft click as the lights in the room fade to black");
+                    break;
+                    case 4:
+                        System.out.println("I can't see anything...");
+                    break;
+                }
+                }
+                if(chance > 33 && chance <= 100){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A figure dances across the walls, shadowy in form");
+                    break;
+                    case 1:
+                        System.out.println("Hello there!");
+                    break;
+                    case 2:
+                        System.out.println("What is that?");
+                    break;
+                    case 3:
+                        System.out.println("Did thar shadow just move?");
+                    break;
+                    case 4:
+                        System.out.println("A shiver runs down your spine as a hollowed form of the Ghost crosses your vision");
+                    break;
+                }
+                }
+                if(chance > 100){
+                    appear = true;
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Did it just scream?!");
+                    break;
+                    case 1:
+                        System.out.println("Am I hearing things?");
+                    break;
+                    case 2:
+                        System.out.println("The silent whispers from the dead fill the room");
+                    break;
+                    case 3:
+                        System.out.println("Is it... talking?");
+                    break;
+                    case 4:
+                        System.out.println("The room echos with melodius shrieks");
+                    break;
+                }
+                }
+            break;
+            case 20://shade
+                if(chance <= 0){
+                switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A eerie humming can he heard, soft and familliar");
+                        System.out.println("It becons you to come and join it in the life beyond");
+                    break;
+                    case 1:
+                        System.out.println("Where is that humming coming from?");
+                    break;
+                    case 2:
+                        System.out.println("That's a creepy song...");
+                    break;
+                    case 3:
+                        System.out.println("Do I hear... singing?");
+                    break;
+                    case 4:
+                        System.out.println("Ring around the rosey...");
+                    break;
+                }
+                } 
+                if(chance > 0 && chance <= 13){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Somewhere in the house, you hear a lightbulb shatter");
+                    break;
+                    case 1:
+                        System.out.println("Where did the lights go?");
+                    break;
+                    case 2:
+                        System.out.println("THE LIGHTS JUST WENT RED!");
+                    break;
+                    case 3:
+                        System.out.println("You hear a soft click as the lights in the room fade to black");
+                    break;
+                    case 4:
+                        System.out.println("I can't see anything...");
+                    break;
+                }
+                }
+                if(chance > 13 && chance <= 40){
+                    appear = true;
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A figure dances across the walls, shadowy in form");
+                    break;
+                    case 1:
+                        System.out.println("Hello there!");
+                    break;
+                    case 2:
+                        System.out.println("What is that?");
+                    break;
+                    case 3:
+                        System.out.println("Did thar shadow just move?");
+                    break;
+                    case 4:
+                        System.out.println("A shiver runs down your spine as a hollowed form of the Ghost crosses your vision");
+                    break;
+                }
+                }
+                if(chance > 40){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Did it just scream?!");
+                    break;
+                    case 1:
+                        System.out.println("Am I hearing things?");
+                    break;
+                    case 2:
+                        System.out.println("The silent whispers from the dead fill the room");
+                    break;
+                    case 3:
+                        System.out.println("Is it... talking?");
+                    break;
+                    case 4:
+                        System.out.println("The room echos with melodius shrieks");
+                    break;
+                }
+                }
+            break;
+            default://normal ghost
+                if(chance <= 20){
+                switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("A eerie humming can he heard, soft and familliar");
+                        System.out.println("It becons you to come and join it in the life beyond");
+                    break;
+                    case 1:
+                        System.out.println("Where is that humming coming from?");
+                    break;
+                    case 2:
+                        System.out.println("That's a creepy song...");
+                    break;
+                    case 3:
+                        System.out.println("Do I hear... singing?");
+                    break;
+                    case 4:
+                        System.out.println("Ring around the rosey...");
+                    break;
+                }
+                } 
+                if(chance > 20 && chance <= 33){
+                    switch (r.nextInt(5)){
+                    case 0:
+                        System.out.println("Somewhere in the house, you hear a lightbulb shatter");
+                    break;
+                    case 1:
+                        System.out.println("Where did the lights go?");
+                    break;
+                    case 2:
+                        System.out.println("THE LIGHTS JUST WENT RED!");
+                    break;
+                    case 3:
+                        System.out.println("You hear a soft click as the lights in the room fade to black");
                     break;
                     case 4:
                         System.out.println("I can't see anything...");
@@ -183,21 +570,22 @@ class Phasmophobia{
                 }
                 }
                 if(chance > 33 && chance <= 80){
+                    appear = true;
                     switch (r.nextInt(5)){
                     case 0:
-                        System.out.println("I can see the ghost!");
+                        System.out.println("A figure dances across the walls, shadowy in form");
                     break;
                     case 1:
                         System.out.println("Hello there!");
                     break;
                     case 2:
-                        System.out.println("It just appeared!");
+                        System.out.println("What is that?");
                     break;
                     case 3:
                         System.out.println("Did thar shadow just move?");
                     break;
                     case 4:
-                        System.out.println("Its walking toward me!");
+                        System.out.println("A shiver runs down your spine as a hollowed form of the Ghost crosses your vision");
                     break;
                 }
                 }
@@ -210,7 +598,7 @@ class Phasmophobia{
                         System.out.println("Am I hearing things?");
                     break;
                     case 2:
-                        System.out.println("The Ghost made a noise!");
+                        System.out.println("The silent whispers from the dead fill the room");
                     break;
                     case 3:
                         System.out.println("Is it... talking?");
@@ -265,7 +653,9 @@ class Phasmophobia{
             {1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
         };
         tangleWood[playerX][playerY] = 4;
-        tangleWood[ghostX][ghostY] = 5;
+        if(appear){
+            tangleWood[ghostX][ghostY] = 5;
+        }
         if(tangleWood[7][15] == 4){
             playerX = 8;
             playerY = 25;
@@ -310,6 +700,7 @@ class Phasmophobia{
                     case 5:
                         //ghost
                         System.out.print("<>");
+                        appear = false;
                     break;
                     case 6:
                         //closed door
@@ -374,6 +765,13 @@ class Phasmophobia{
         else if((playerY > 0 && playerX > 19) && (playerY < 3 && playerX < 23)) currentRoom = "Bathroom";
         else currentRoom = "";
     }
+    public static void playerSanity(){
+        Random r = new Random();
+        if(r.nextInt(10)+1 >=5 ){
+        if(currentRoom == ghostroom) sanity--;
+        }
+        System.out.println("Current Sanity: "+sanity);
+    }
     public static void hud(){
         room();
         System.out.println("Current Room: " + currentRoom);
@@ -385,6 +783,7 @@ class Phasmophobia{
             ghostInteraction();
             gInteract = false;
         }
+        playerSanity();
     }
     public static boolean dots = false;
     public static boolean emf = false;
@@ -402,7 +801,7 @@ class Phasmophobia{
         System.out.println("3) Read about Ghosts");
         System.out.println("4) Finish game");
         switch(input.nextInt()){
-            case 1:
+            case 1: //ghost selection
                 clear();
                 if(!(freezing == true || writing == true || box == true || emf == true)) System.out.println("1) Banshee"); 
                 if(!(box == true || emf == true || dots == true || orb == true)) System.out.println("2) Demon");
@@ -435,7 +834,7 @@ class Phasmophobia{
                 System.out.println("Current Ghost Selected: " + ghostGuess);
                 ghostGuess = input.nextInt();
             break;
-            case 2:
+            case 2://evidence selection
                 clear();
                 if(dots == true) System.out.println("[X]1) D.O.T.S."); 
                 else System.out.println("[ ]1) D.O.T.S.");
@@ -485,7 +884,7 @@ class Phasmophobia{
                     break;
                 }
             break;
-            case 3:
+            case 3://read about ghost
                 clear();
                 System.out.println("Select Ghost to read about");
                 System.out.println("1) Banshee"); 
@@ -516,7 +915,7 @@ class Phasmophobia{
                 System.out.println("26) Yurei");
                 System.out.println("27) Yokai");
                 switch (input.nextInt()){
-                    case 1:
+                    case 1://banshee
                         clear();
                         System.out.println("Banshee");
                         System.out.println("The singing siren, known for attracting its victims through song.\nIt has been known to single out its prey before making a killing blow.");
@@ -526,7 +925,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 2:
+                    case 2://demon
                         clear();
                         System.out.println("Demon");
                         System.out.println("A Demon is one of the worst ghosts you can encounter.\nIt has been known to attack without reason.");
@@ -536,7 +935,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 3:
+                    case 3://deogen
                         clear();
                         System.out.println("Deogen");
                         System.out.println("Sometimes surrounded by an endless fog, Deogen have been eluding ghost hunters for years.\nThese ghosts have been reported to find even the most hidden prey, before stalking them into exhaustion.");
@@ -546,7 +945,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 4:
+                    case 4://dayan
                         clear();
                         System.out.println("Dayan");
                         System.out.println("The Dayan is born from the soul of someone who suffered immense cruelty in life.\nNow, in death, she is hyper-vigilant of anyone who 'dances' too close.");
@@ -556,7 +955,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 5:
+                    case 5://gallu
                         clear();
                         System.out.println("Gallu");
                         System.out.println("Another form of demon, the Gallu is a reminder that death comes for us all.\nUsing protective equipment provokes the ghost until it's no longer effective.");
@@ -566,7 +965,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 6:
+                    case 6://goryo
                         clear();
                         System.out.println("Goryo");
                         System.out.println("When a Goryo passes through a DOTS projector, using a video camera is the only way to see it.");
@@ -576,7 +975,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 7:
+                    case 7://hantu
                         clear();
                         System.out.println("Hantu");
                         System.out.println("Hantu is a rare ghost that thrives in the coldest climates.\nThe cold seems to make them more aggressive and empowered.");
@@ -586,7 +985,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 8:
+                    case 8://jinn
                         clear();
                         System.out.println("Jinn");
                         System.out.println("A Jinn is a territorial ghost that will attack when threatened.\nIt has also been known to be able to travel at significant speed.");
@@ -596,7 +995,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 9:
+                    case 9://mare
                         clear();
                         System.out.println("Mare");
                         System.out.println("A Mare is the source of all nightmares, making it most powerful in the dark.");
@@ -606,7 +1005,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 10:
+                    case 10://moroi
                         clear();
                         System.out.println("Moroi");
                         System.out.println("Moroi have risen from the grave to drain energy from the living.\nThey have been known to place curses on their victims, curable only by antidotes or moving very far away.");
@@ -616,7 +1015,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 11:
+                    case 11://myling
                         clear();
                         System.out.println("Myling");
                         System.out.println("A Myling is a very vocal and active ghost.\nThey are rumoured to be quiet when hunting their prey.");
@@ -626,7 +1025,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 12:
+                    case 12://obake
                         clear();
                         System.out.println("Obake");
                         System.out.println("Obake are terrifying shape-shifters, capable of taking on many forms.\nThey have been seen taking on humanoid shapes to attract their prey.");
@@ -636,7 +1035,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 13:
+                    case 13://obambo
                         clear();
                         System.out.println("Obambo");
                         System.out.println("The Obambo is the ghost of someone never properly laid to rest.\nFickle and defensive, it flickers between states of calm and aggression.");
@@ -646,7 +1045,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 14:
+                    case 14://oni
                         clear();
                         System.out.println("Oni");
                         System.out.println("Onis love to scare their victims as much as possible before attacking.\nThey are often seen in their physical form, guarding their place of death.");
@@ -656,7 +1055,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 15:
+                    case 15://onyro
                         clear();
                         System.out.println("Onyro");
                         System.out.println("The Onryo is often referred to as \"The Wrathful Spirit\".\nIt steals souls from dying victims' bodies to seek revenge.\nThis ghost has been known to fear any form of fire, and will do anything to be far from it.");
@@ -666,7 +1065,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 16:
+                    case 16://phantom
                         clear();
                         System.out.println("Phantom");
                         System.out.println("A Phantom is a ghost that can possess the living, inducing fear into those around it.\nThey are most commonly summoned from Ouija Boards.");
@@ -676,7 +1075,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 17:
+                    case 17://poltergist
                         clear();
                         System.out.println("Poltergist");
                         System.out.println("One of the most famous ghosts, the Poltergeist.\nKnown to manipulate objects around it to spread fear into its victims.");
@@ -686,7 +1085,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 18:
+                    case 18://raiju
                         clear();
                         System.out.println("Raiju");
                         System.out.println("A Raiju is a demon that thrives on electrical current.\nWhile generally calm, they can become agitated when overwhelmed with power.");
@@ -696,7 +1095,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 19:
+                    case 19://revenant
                         clear();
                         System.out.println("Revenant");
                         System.out.println("A Revenant is a violent ghost that will attack indiscriminately.\nTheir speed can be deceiving, as they are slow while dormant; however, as soon as they hunt they can move incredibly fast.");
@@ -706,7 +1105,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 20:
+                    case 20://shade
                         clear();
                         System.out.println("Shade");
                         System.out.println("A Shade is known to be very shy.\nThere is evidence to suggest that a Shade will stop all paranormal activity if there are people nearby.");
@@ -716,7 +1115,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 21:
+                    case 21://spirit
                         clear();
                         System.out.println("Spirit");
                         System.out.println("Spirits are very common ghosts.\nThey are very powerful, but passive, only attacking when they need to.\nThey defend their place of death to the utmost degree, killing anyone that is caught overstaying their welcome.");
@@ -726,7 +1125,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 22:
+                    case 22://thaye
                         clear();
                         System.out.println("Thaye");
                         System.out.println("Thaye have been known to rapidly age over time, even in the afterlife.\nFrom what we've learned, they seem to deteriorate faster while within the presence of the living.");
@@ -736,7 +1135,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 23:
+                    case 23://mimic
                         clear();
                         System.out.println("The Mimic");
                         System.out.println("The Mimic is an elusive, mysterious, copycat ghost that mirrors traits and behaviours from others, including other ghost types.");
@@ -746,7 +1145,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 24:
+                    case 24://twins
                         clear();
                         System.out.println("The Twins");
                         System.out.println("These ghosts have been reported to mimic each other's actions.\nThey alternate their attacks to confuse their prey.");
@@ -756,7 +1155,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 25:
+                    case 25://wraith
                         clear();
                         System.out.println("Wraith");
                         System.out.println("Wraiths are one of the most dangerous ghosts you will find.\nIt is also the only known ghost that has the ability of flight and has sometimes been known to travel through walls.");
@@ -766,7 +1165,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 26:
+                    case 26://yurei
                         clear();
                         System.out.println("Yurei");
                         System.out.println("A Yurei is a ghost that has returned to the physical world, usually for the purpose of revenge or hatred.");
@@ -776,7 +1175,7 @@ class Phasmophobia{
                         input.nextLine();
                         input.nextLine();
                     break;
-                    case 27:
+                    case 27://yokai
                         clear();
                         System.out.println("Yokai");
                         System.out.println("Yokai are common ghosts that are attracted to human voices.\nThey can usually be found haunting family homes.");
@@ -789,7 +1188,7 @@ class Phasmophobia{
 
                 }
             break;
-            case 4:
+            case 4://end game
                 clear();
                 System.out.print("\nGhost slected: ");
                 switch(ghostGuess){
@@ -882,10 +1281,178 @@ class Phasmophobia{
                    if(ghostGuess == ghostType){
                         clear();
                         System.out.println("You Win :)");
+                        System.out.print("The Ghost was: ");
+                        switch(ghostType){
+                    case 1:
+                        System.out.print("Banshee");
+                    break;
+                    case 2:
+                        System.out.print("Demon");
+                    break;
+                    case 3:
+                        System.out.print("Deogen");
+                    break;
+                    case 4:
+                        System.out.print("Dayan");
+                    break;
+                    case 5:
+                        System.out.print("Gallu");
+                    break;
+                    case 6:
+                        System.out.print("Goryo");
+                    break;
+                    case 7:
+                        System.out.print("Hantu");
+                    break;
+                    case 8:
+                        System.out.print("Jinn");
+                    break;
+                    case 9:
+                        System.out.print("Mare");
+                    break;
+                    case 10:
+                        System.out.print("Moroi");
+                    break;
+                    case 11:
+                        System.out.print("Myling");
+                    break;
+                    case 12:
+                        System.out.print("Obake");
+                    break;
+                    case 13:
+                        System.out.print("Obambo");
+                    break;
+                    case 14:
+                        System.out.print("Oni");
+                    break;
+                    case 15:
+                        System.out.print("Onyro");
+                    break;
+                    case 16:
+                        System.out.print("Phantom");
+                    break;
+                    case 17:
+                        System.out.print("Poltergist");
+                    break;
+                    case 18:
+                        System.out.print("Rajiu");
+                    break;
+                    case 19:
+                        System.out.print("Revenant");
+                    break;
+                    case 20:
+                        System.out.print("Shade");
+                    break;
+                    case 21:
+                        System.out.print("Spirit");
+                    break;
+                    case 22:
+                        System.out.print("Thaye");
+                    break;
+                    case 23:
+                        System.out.print("The Mimic");
+                    break;
+                    case 24:
+                        System.out.print("The Twins");
+                    break;
+                    case 25:
+                        System.out.print("Wraith");
+                    break;
+                    case 26:
+                        System.out.print("Yurei");
+                    break;
+                    case 27:
+                        System.out.print("Yokai");
+                    break;
+                }
                         System.exit(0);
                    } else {
                     clear();
                     System.out.println("You lose :(");
+                    System.out.print("The Ghost was: ");
+                        switch(ghostType){
+                    case 1:
+                        System.out.print("Banshee");
+                    break;
+                    case 2:
+                        System.out.print("Demon");
+                    break;
+                    case 3:
+                        System.out.print("Deogen");
+                    break;
+                    case 4:
+                        System.out.print("Dayan");
+                    break;
+                    case 5:
+                        System.out.print("Gallu");
+                    break;
+                    case 6:
+                        System.out.print("Goryo");
+                    break;
+                    case 7:
+                        System.out.print("Hantu");
+                    break;
+                    case 8:
+                        System.out.print("Jinn");
+                    break;
+                    case 9:
+                        System.out.print("Mare");
+                    break;
+                    case 10:
+                        System.out.print("Moroi");
+                    break;
+                    case 11:
+                        System.out.print("Myling");
+                    break;
+                    case 12:
+                        System.out.print("Obake");
+                    break;
+                    case 13:
+                        System.out.print("Obambo");
+                    break;
+                    case 14:
+                        System.out.print("Oni");
+                    break;
+                    case 15:
+                        System.out.print("Onyro");
+                    break;
+                    case 16:
+                        System.out.print("Phantom");
+                    break;
+                    case 17:
+                        System.out.print("Poltergist");
+                    break;
+                    case 18:
+                        System.out.print("Rajiu");
+                    break;
+                    case 19:
+                        System.out.print("Revenant");
+                    break;
+                    case 20:
+                        System.out.print("Shade");
+                    break;
+                    case 21:
+                        System.out.print("Spirit");
+                    break;
+                    case 22:
+                        System.out.print("Thaye");
+                    break;
+                    case 23:
+                        System.out.print("The Mimic");
+                    break;
+                    case 24:
+                        System.out.print("The Twins");
+                    break;
+                    case 25:
+                        System.out.print("Wraith");
+                    break;
+                    case 26:
+                        System.out.print("Yurei");
+                    break;
+                    case 27:
+                        System.out.print("Yokai");
+                    break;
+                }
                     System.exit(0);
                    }
                 }
