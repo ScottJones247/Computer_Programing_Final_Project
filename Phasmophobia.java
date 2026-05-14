@@ -12,6 +12,15 @@ class Phasmophobia{
     public static boolean gEvent = false;
     public static boolean gInteract = false;
     public static boolean appear = false;
+    public static String ghostTypes[][] = {
+            {"Banshee", "Demon", "Deogen", "Dayan", "Gallu", "Goryo", "Hantu", "Jinn", "Mare", "Moroi", "Myling", "Obake", "Obambo", "Oni", "Onryo", "Phamtom", "Poltergeist", "Raiju", "Revenant", "Shade", "Spirit", "Thaye", "The Mimic", "The Twins", "Wraith", "Yurei", "Yokai"}, //ghost types
+            {"DOTS", "Freezing", "DOTS", "EMF 5", "EMF 5", "DOTS", "Freezing", "EMF 5", "Ghost Orb", "Freezing", "EMF 5", "EMF 5", "DOTS", "DOTS", "Freezing", "DOTS", "Ghost Writing", "DOTS", "Freezing", "EMF 5", "EMF 5", "DOTS", "Freezing", "EMF 5", "DOTS", "DOTS", "DOTS"}, //evidence 1
+            {"Ghost Orb", "Ghost Writing", "Ghost Writing", "Ghost Orb", "Ghost Orb", "EMF 5", "Ghost Orb", "Freezing", "Ghost Writing", "Ghost Writing", "Ghost Writing", "Ghost Orb", "Ghost Writing", "EMF 5", "Ghost Orb", "Spirit Box", "Spirit Box", "EMF 5", "Ghost Orb", "Freezing", "Ghost Writing", "Ghost Orb", "Spirit Box", "Freezing", "EMF 5", "Freezing", "Ghost Orb"}, // evidence 2
+            {"Ultraviolet", "Ultraviolet", "Spirit Box", "Spirit Box", "Ultraviolet", "Ultraviolet", "Ultraviolet", "Ultraviolet", "Spirit Box", "Spirit Box", "Ultraviolet", "Ultraviolet", "Ultraviolet", "Freezing", "Spirit Box", "Ultraviolet", "Ultraviolet", "Ghost Orb", "Ghost Writing", "Ghost Writing", "Spirit Box", "Ghost Writing", "Ultraviolet", "Spirit Box", "Spirit Box", "Ghost Orb", "Spirit Box"}, // evidence 3
+            {"singing", "hunt", "location", "movement", "protection", "dots", "freezing", "fuse", "light", "sanity", "parabolic", "fingerprint", "agressive", "activity", "flame", "stalk", "throw", "electronic", "speed", "shy", "none", "age", "mimic", "interact", "salt", "door", "listen"}, // ghost ability
+        };
+    public static String playerInventory[] = {"Spirit Box","Video camera","Ultraviolet","Thermometer","EMF Reader","D.O.T.S. Pen","Spirit Book",""};
+    public static String playerHolding = playerInventory[7];
     //main, boys, mainbath, nursery, masterbed, mastercloset, masterbath, basement, utility, garage
     public static boolean doors[] = {true, true, true, true, true, true, true, true, true, true};
     public static void main(String[] args){
@@ -29,19 +38,12 @@ class Phasmophobia{
     }
     public static void ghosts(){
         Random r = new Random();
-        String ghostTypes[][] = {
-            {"Banshee", "Demon", "Deogen", "Dayan", "Gallu", "Goryo", "Hantu", "Jinn", "Mare", "Moroi", "Myling", "Obake", "Obambo", "Oni", "Onryo", "Phamtom", "Poltergeist", "Raiju", "Revenant", "Shade", "Spirit", "Thaye", "The Mimic", "The Twins", "Wraith", "Yurei", "Yokai"}, //ghost types
-            {"DOTS", "Freezing", "DOTS", "EMF 5", "EMF 5", "DOTS", "Freezing", "EMF 5", "Ghost Orb", "Freezing", "EMF 5", "EMF 5", "DOTS", "DOTS", "Freezing", "DOTS", "Ghost Writing", "DOTS", "Freezing", "EMF 5", "EMF 5", "DOTS", "Freezing", "EMF 5", "DOTS", "DOTS", "DOTS"}, //evidence 1
-            {"Ghost Orb", "Ghost Writing", "Ghost Writing", "Ghost Orb", "Ghost Orb", "EMF 5", "Ghost Orb", "Freezing", "Ghost Writing", "Ghost Writing", "Ghost Writing", "Ghost Orb", "Ghost Writing", "EMF 5", "Ghost Orb", "Spirit Box", "Spirit Box", "EMF 5", "Ghost Orb", "Freezing", "Ghost Writing", "Ghost Orb", "Spirit Box", "Freezing", "EMF 5", "Freezing", "Ghost Orb"}, // evidence 2
-            {"Ultraviolet", "Ultraviolet", "Spirit Box", "Spirit Box", "Ultraviolet", "Ultraviolet", "Ultraviolet", "Ultraviolet", "Spirit Box", "Spirit Box", "Ultraviolet", "Ultraviolet", "Ultraviolet", "Freezing", "Spirit Box", "Ultraviolet", "Ultraviolet", "Ghost Orb", "Ghost Writing", "Ghost Writing", "Spirit Box", "Ghost Writing", "Ultraviolet", "Spirit Box", "Spirit Box", "Ghost Orb", "Spirit Box"}, // evidence 3
-            {"singing", "hunt", "location", "movement", "protection", "dots", "freezing", "fuse", "light", "sanity", "parabolic", "fingerprint", "agressive", "activity", "flame", "stalk", "throw", "electronic", "speed", "shy", "none", "age", "mimic", "interact", "salt", "door", "listen"}, // ghost ability
-        };
         int i = r.nextInt(28);
         String[] ghost = new String[5];
         ghost[0] = ghostTypes[0][i];
-        ghost[1] = ghostTypes[1][i];
-        ghost[2] = ghostTypes[2][i];
-        ghost[3] = ghostTypes[3][i];
+        ghost[1] = ghostTypes[1][i]; // evidence 1
+        ghost[2] = ghostTypes[2][i]; // evidence 2
+        ghost[3] = ghostTypes[3][i]; // evidence 3
         ghost[4] = ghostTypes[4][i];
         int froom = r.nextInt(11);
         switch(froom + 1){
@@ -106,23 +108,16 @@ class Phasmophobia{
         for(int a = 0; a < ghostTypes[0].length; a++){
             if(ghostTypes[0][a].equals(ghost[0])){
                 ghostType = a + 1;
-                //System.out.println(a);
             }
         }
-        
+        System.out.println("ghost type: " + ghostType);
     }
     public static void ghostActive(){
-        int eventChance = (-2 * sanity) + 200;
-        if(currentRoom.equals(ghostroom)){
-            Random r = new Random();
-            if(eventChance < 50){
-                eventChance = (-2 * sanity) + 200;
-            } else {
-                eventChance = 50;
-            }   
-        if((r.nextInt(100)+1) < eventChance){
-            gEvent = true;
-        }
+        Random r = new Random();
+        if((r.nextInt(130) + 1) < sanity){
+            
+        } else {
+
         }
     }
     public static void ghostEvent(){
@@ -614,6 +609,72 @@ class Phasmophobia{
     public static void ghostInteraction(){
 
     }
+    public static int roomTemp = 20;
+    public static void ghostEvidence(){
+        Random r = new Random();
+        if(currentRoom == ghostroom){
+            roomTemp = 10;
+        }else{
+            roomTemp = 20;
+        }
+        if(playerHolding.equals("Thermometer")) System.out.println("Room Temp: " + roomTemp);
+        int ghostdistance = (int)(Math.sqrt((Math.pow((playerX - ghostX) , 2)) + (Math.pow((playerY - ghostY) , 2))));
+        System.out.println(ghostdistance);
+        if(currentRoom == ghostroom){
+            switch (playerHolding){
+                case "Spirit Box":
+                    if(ghostTypes[1][ghostType].equals("Spirit Box") || ghostTypes[2][ghostType].equals("Spirit Box") || ghostTypes[3][ghostType].equals("Spirit Box")){
+                        if(ghostdistance <= 5){
+                            if((r.nextInt(10)+1)>=5)
+                                System.out.println("I heard Spirit Box!");
+                        }    
+                    }
+                break;
+                case "Video camera":
+                    if(ghostTypes[1][ghostType].equals("Ghost Orb") || ghostTypes[2][ghostType].equals("Ghost Orb") || ghostTypes[3][ghostType].equals("Ghost Orb")){
+                            if((r.nextInt(10)+1)>=5){
+                                System.out.println("I saw a Ghost Orb!");
+                            }
+                    }
+                break;
+                case "Ultraviolet":
+                    if(ghostTypes[1][ghostType].equals("Ultraviolet") || ghostTypes[2][ghostType].equals("Ultraviolet") || ghostTypes[3][ghostType].equals("Ultraviolet")){
+                        if(ghostdistance <= 5){
+                            if((r.nextInt(10)+1)>=5)
+                                System.out.println("I saw a hand print!");
+                        }    
+                    }
+                break;
+                case "Thermometer":
+                    if(ghostTypes[1][ghostType].equals("freezing") || ghostTypes[2][ghostType].equals("freezing") || ghostTypes[3][ghostType].equals("freezing")){
+                            roomTemp = roomTemp - r.nextInt(20);    
+                    }
+                break;
+                case "EMF Reader":
+                    if(ghostTypes[1][ghostType].equals("EMF 5") || ghostTypes[2][ghostType].equals("EMF 5") || ghostTypes[3][ghostType].equals("EMF 5")){
+                            if((r.nextInt(10)+1)>=5){
+                                System.out.println("Ghost activity is a 5!");
+                            }
+                    }
+                break;
+                case "D.O.T.S. Pen":
+                    if(ghostTypes[1][ghostType].equals("dots") || ghostTypes[2][ghostType].equals("dots") || ghostTypes[3][ghostType].equals("dots")){
+                            if((r.nextInt(10)+1)>=5){
+                                System.out.println("I saw a D.O.T.S.!");
+                            }
+                    }
+                break;
+                case "Spirit Book":
+                    if(ghostTypes[1][ghostType].equals("Ghost Writing") || ghostTypes[2][ghostType].equals("Ghost Writing") || ghostTypes[3][ghostType].equals("Ghost Writing")){
+                        if(ghostdistance <= 5){
+                            if((r.nextInt(10)+1)>=5)
+                                System.out.println("The Ghost wrote in the book!");
+                        }    
+                    }
+                break;
+            }
+        }
+    }
     public static int[][] mainMap(){
         //door (open / closed)
         //faucet (on / off)
@@ -664,7 +725,7 @@ class Phasmophobia{
             playerX = 8;
             playerY = 15;
         }
-        System.out.println(playerX + " " + playerY);
+        //System.out.println(playerX + " " + playerY);
         return tangleWood;
     }
     public static void printMap(){
@@ -739,12 +800,41 @@ class Phasmophobia{
             case "j":
                 journal();
             break;
+            case "q":
+                switch(playerHolding){
+                    case "Spirit Box":
+                        playerHolding = "Video camera";
+                    break;
+                    case "Video camera":
+                        playerHolding = "Ultraviolet";
+                    break;
+                    case "Ultraviolet":
+                        playerHolding = "Thermometer";
+                    break;
+                    case "Thermometer":
+                        playerHolding = "EMF Reader";
+                    break;
+                    case "EMF Reader":
+                        playerHolding = "D.O.T.S. Pen";
+                    break;
+                    case "D.O.T.S. Pen":
+                        playerHolding = "Spirit Book";
+                    break;
+                    case "Spirit Book":
+                        playerHolding = "";
+                    break;
+                    case "":
+                        playerHolding = "Spirit Box";
+                    break;
+                }
+            break;
             case "c":
                 System.out.println("w) move up");
                 System.out.println("a) move left");
                 System.out.println("s) move right");
                 System.out.println("d) move down");
                 System.out.println("j) open journal");
+                System.out.println("q) cycle items");
                 System.out.println("Press Enter to continue");
                 input.nextLine();
                 printMap();
@@ -774,7 +864,10 @@ class Phasmophobia{
     }
     public static void hud(){
         room();
-        System.out.println("Current Room: " + currentRoom);
+        //System.out.println("Current Room: " + currentRoom);
+        playerSanity();
+        System.out.println("Holding: " + playerHolding);
+        ghostEvidence();
         if(gEvent){
             ghostEvent();
             gEvent = false;
@@ -783,7 +876,8 @@ class Phasmophobia{
             ghostInteraction();
             gInteract = false;
         }
-        playerSanity();
+        
+        
     }
     public static boolean dots = false;
     public static boolean emf = false;
